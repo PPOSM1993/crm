@@ -21,17 +21,14 @@
             width: 100%;
         }
     </style>
+    <a href="/leads">Go Back</a>
+    <h1>Update Lead {{ lead.first_name }} {{ lead.last_name }} </h1>
 
-    <h1>My First Heading</h1>
-    <a href="{% url 'leads:lead_create' %}">Create New Lead</a>
-    {% for lead in leads %}
-        <div class="lead">
-            <p>{{ lead.first_name }}  {{ lead.last_name }} {{ lead.age }} {{ lead.agent }} </p>
-            <a href="{% url 'leads:lead_update' lead.pk %}">Update</a>
-             <a href="{% url 'leads:lead_delete' lead.pk %}">Delete</a>
-        </div>
-    {% endfor %}
-
+    <form method="POST" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 
 </body>
 </html> 
