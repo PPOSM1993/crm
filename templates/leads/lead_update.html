@@ -1,26 +1,7 @@
- <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-</head>
-<body>
 
-    <style>
-        * {
-            font-family: Arial
-        }
+{% extends "base.html" %}
 
-        .lead {
-            font-family: Arial;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: 10px;
-            background-color: #f6f6f6;
-            width: 100%;
-        }
-    </style>
+{% block content %}
     <a href="/leads">Go Back</a>
     <h1>Update Lead {{ lead.first_name }} {{ lead.last_name }} </h1>
 
@@ -30,5 +11,5 @@
         <button type="submit">Submit</button>
     </form>
 
-</body>
-</html> 
+
+{% endblock  %}

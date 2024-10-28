@@ -1,27 +1,9 @@
- <!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <style>
-        * {
-            font-family: Arial
-        }
 
-        .lead {
-            font-family: Arial;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: 10px;
-            background-color: #f6f6f6;
-            width: 100%;
-        }
-    </style>
-    <a href="{% url 'leads:home_page' %}">Go Back to the Leads</a>
+{% block content %}
+
+    <a href="{% url 'leads:lead_list' %}">Go Back to the Leads</a>
     <h1>Create a New Lead</h1>
 
     <form method="POST" action=".">
@@ -30,5 +12,4 @@
         <button type="submit">Submit</button>
     </form>
 
-</body>
-</html> 
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+    <section class="text-gray-700 body-font">        
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+            <div class="w-full mb-6 py-6 flex justify-between items-center border-b border-gray-200">
+            <div>
+                <h1 class="text-4xl text-gray-800">Leads</h1>
+                <br>
+                <a class="text-gray-500 hover:text-blue-500" href="">
+                    View categories
+                </a>
+            </div>
+            <div>
+                <a class="text-gray-500 hover:text-blue-500" href="{% url 'leads:lead_create' %}">
+                    Create a new lead
+                </a>
+            </div>
+
+ 
+            </div>
+        </div>
+    </section>
+
+
+
+    <a href="{% url 'leads:lead_create' %}">Create New Lead</a>
+    {% for lead in leads %}
+        <div class="lead">
+            <p>{{ lead.first_name }}  {{ lead.last_name }} {{ lead.age }} {{ lead.agent }} </p>
+            <a href="{% url 'leads:lead_detail' lead.pk %}">Detail Leads</a>
+            <a href="{% url 'leads:lead_update' lead.pk %}">Update</a>
+             <a href="{% url 'leads:lead_delete' lead.pk %}">Delete</a>
+        </div>
+    {% endfor %}
+
+
+{% endblock  %}
