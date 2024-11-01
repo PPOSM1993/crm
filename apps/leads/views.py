@@ -2,11 +2,23 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
+from django.views.generic import TemplateView, ListView
 
 # Create your views here.
 
-def LandingPage(request):
-    return render(request, "landing.html")
+#CRUD Create Red Update and Read
+
+class LandingPageView(TemplateView):
+    template_name = "landing.html"
+
+
+class LeadListView(ListView):
+    template_name = "leads/lead_list.html"
+    queryset = Lead.objects.all()
+
+
+#def LandingPage(request):
+#    return render(request, "landing.html")
 
 
 
