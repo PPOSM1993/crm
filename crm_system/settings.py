@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'apps.leads',
+    'apps.agents',
 
     'crispy_forms',
     "crispy_bootstrap5",
@@ -132,6 +133,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-#AUTH_USER_MODEL = 'leads.User'
+STATIC_ROOT = 'static_root'
 
 AUTH_USER_MODEL = 'leads.User'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+LOGIN_REDIRECT_URL = '/leads/'
+LOGIN_URL = "/login/"
